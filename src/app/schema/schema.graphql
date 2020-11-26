@@ -1,0 +1,39 @@
+# Exposes a URL that specifies the behaviour of this scalar.
+directive @specifiedBy(
+  # The URL that specifies the behaviour of this scalar.
+  url: String!
+) on SCALAR
+type Company {
+  id: ID!
+  name: String!
+  address1: String!
+  address2: String!
+  enabled: Boolean!
+}
+
+type Mutation {
+  updateUser(input: UserInput!, id: Int!): Boolean!
+  testUpdateUser(id: Int!): Boolean!
+}
+
+type Query {
+  helloWorld: String!
+  users: [User!]!
+  user(id: String!): User!
+}
+
+type User {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  email: String!
+  mobile: String!
+  company: Company!
+}
+
+input UserInput {
+  firstName: String!
+  lastName: String!
+  email: String!
+}
+

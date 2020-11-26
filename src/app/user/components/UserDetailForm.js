@@ -8,23 +8,25 @@ const UserDetailForm = props => {
   const { user } = props;
   const [values, handleChange] = useForm({ ...user });
 
-  const [updateUser, { loading, error, data }] = useMutation(
+  const [updateUser] = useMutation(
     UPDATE_USER_BY_ID
   );
 
-  console.log('data in detail form: ', data);
+  // console.log('data in detail form: ', data);
 
   const onSubmit = async e => {
     e.preventDefault();
     console.log('submit');
     await updateUser({
       variables: {
-        id: user.id,
-        firstName: values.firstName,
-        lastName: values.lastName,
-        email: values.email
+        id: +user.id,
+        input: {
+          firstName: values.firstName,
+          lastName: values.lastName,
+          email: values.email
+        }
       }
-    });
+    }).catch(err => console.log(err));
   }
 
   return (

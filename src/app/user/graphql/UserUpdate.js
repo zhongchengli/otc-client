@@ -1,12 +1,9 @@
 const { default: gql } = require("graphql-tag");
 
 const UPDATE_USER_BY_ID = gql`
-  mutation updateUser($id: String!, $firstName: String!, $lastName: String!, $email: String!){
-    updateUser(id: $id, input:{firstName:$firstName, lastName: $lastName, email:$email})
+  mutation UpdateUser($id: Int!, $input: UserInput!){
+    updateUser(id: $id, input:$input)
   }
-  # mutation updateUser($id: Number!){
-  #   testUpdateUser(id: 3)
-  # }
 `;
 
 export default UPDATE_USER_BY_ID;
