@@ -4,13 +4,7 @@ import TableHeader from "./TableHeader";
 
 const Table = props => {
 
-  // const { objects } = props;
-  const objects = [
-    { "company": "Alfreds Futterkiste", "contact": "Maria Anders", "country": "Germany" },
-    { "company": "Alfreds Futterkiste", "contact": "Maria Anders", "country": "Germany" },
-    { "company": "Alfreds Futterkiste", "contact": "Maria Anders", "country": "Germany" },
-    { "company": "Alfreds Futterkiste", "contact": "Maria Anders", "country": "Germany" }
-  ];
+  const { objects, ...rest } = props;
 
   let headers;
   if (Array.isArray(objects) && objects.length) {
@@ -20,8 +14,8 @@ const Table = props => {
   return (
     <Fragment>
       <table className="playtravel">
-        <TableHeader headers={headers} />
-        <TableBody datas={objects} names={headers} />
+        <TableHeader headers={headers} {...rest} />
+        <TableBody data={objects} {...rest} />
       </table>
     </Fragment >
   )

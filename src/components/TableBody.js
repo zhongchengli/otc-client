@@ -1,18 +1,22 @@
 import React, { Fragment } from "react"
 
 const TableBody = props => {
-  const { datas } = props;
+  const { data, editBtn, deleteBtn } = props;
 
   return (
     <Fragment>
       <tbody>
-        {datas && datas.map((data, key) => {
+        {data && data.map((obj, key) => {
+          console.log('obj = ', obj);
           return (
             <tr key={key}>
-              {Object.values(data).map((value, k) => <td key={k}>{value}</td>)}
+              {Object.values(obj).map((value, k) => <td key={k}>{value}</td>)}
+              {editBtn && <td>Edit</td>}
+              {deleteBtn && <td>Delete</td>}
             </tr>
           );
         })}
+
       </tbody>
     </Fragment>
   )
