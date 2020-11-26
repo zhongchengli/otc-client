@@ -8,8 +8,8 @@ const Header = () => {
     <Fragment>
       <NavBar>
         <Link name="home" path="/" />
-        <Link name="user" path="/user" />
-        <Link name="company" path="/company" />
+        <Link name="user" path="/users" />
+        <Link name="company" path="/companies" />
       </NavBar>
     </Fragment>
   )

@@ -15,7 +15,7 @@ const GET_ALL_USERS = gql`
 }
 `;
 
-const UserPage = props => {
+const UsersPage = props => {
 
   const { data } = useQuery(GET_ALL_USERS);
 
@@ -26,9 +26,9 @@ const UserPage = props => {
 
   return (
     <div>
-      <Table objects={users} editBtn deleteBtn />
+      <Table objects={users} type="user" editBtn deleteBtn />
     </div>
   )
 }
 
-export default UserPage;
+export default UsersPage;

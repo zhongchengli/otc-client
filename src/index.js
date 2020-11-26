@@ -8,10 +8,10 @@ import ApolloClient from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import WelcomePage from './pages/WelcomePage';
-import UserPage from './pages/UserPage';
+import UsersPage from './pages/UsersPage';
 import CompanyPage from './pages/CompanyPage';
 import Header from './components/Header';
-import App from './App';
+import UserDetailPage from './pages/UserDetailPage';
 
 const cache = new InMemoryCache();
 const link = new HttpLink({
@@ -29,8 +29,9 @@ ReactDOM.render(
       <Header />
       <Switch>
         <Route exact path="/" component={WelcomePage} />
-        <Route exact path="/user" component={UserPage} />
-        <Route exact path="/company" component={CompanyPage} />
+        <Route exact path="/users" component={UsersPage} />
+        <Route path="/user" component={UserDetailPage} />
+        <Route exact path="/companies" component={CompanyPage} />
       </Switch>
     </BrowserRouter>
   </ApolloProvider>,

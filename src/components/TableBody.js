@@ -1,7 +1,14 @@
 import React, { Fragment } from "react"
+import { Link } from "react-router-dom";
 
 const TableBody = props => {
-  const { data, editBtn, deleteBtn } = props;
+  const { data, type, editBtn, deleteBtn } = props;
+
+  let editPath;
+  let deletePath;
+  if (editBtn) {
+    editPath = `/${type}?id=`;
+  }
 
   return (
     <Fragment>
@@ -11,7 +18,7 @@ const TableBody = props => {
           return (
             <tr key={key}>
               {Object.values(obj).map((value, k) => <td key={k}>{value}</td>)}
-              {editBtn && <td>Edit</td>}
+              {editBtn && <td><Link to={editPath + obj.id}>Edit</Link></td>}
               {deleteBtn && <td>Delete</td>}
             </tr>
           );
