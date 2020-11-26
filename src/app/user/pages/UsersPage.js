@@ -8,10 +8,15 @@ const UsersPage = props => {
 
   const { data } = useQuery(GET_ALL_USERS);
 
+  console.log('props = ', props);
+  console.log('data = ', data);
+
   let users;
   if (data && data.users) {
     users = stripTypenames(data.users, "__typename");
   }
+
+
 
   return (
     <div>

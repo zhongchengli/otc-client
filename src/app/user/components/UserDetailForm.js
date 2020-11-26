@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { useMutation } from "react-apollo";
+import { Redirect, useHistory } from "react-router-dom";
 import { useForm } from "../../../utils/useForm";
 import UPDATE_USER_BY_ID from "../graphql/UserUpdate";
 
@@ -7,12 +8,16 @@ const UserDetailForm = props => {
 
   const { user } = props;
   const [values, handleChange] = useForm({ ...user });
+  const history = useHistory();
+
   const [updateUser] = useMutation(
-    UPDATE_USER_BY_ID
+    UPDATE_USER_BY_ID,
+    {
+      onCompleted() {
+        history.goBack();
+      }
+    }
   );
-
-
-  // console.log('data in detail form: ', data);
 
   const onSubmit = async e => {
     e.preventDefault();

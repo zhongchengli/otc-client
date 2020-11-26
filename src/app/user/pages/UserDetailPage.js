@@ -1,9 +1,8 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { useMutation, useQuery } from "react-apollo";
+import { useQuery } from "react-apollo";
 import { useLocation } from "react-router-dom";
 import UserDetailForm from "../components/UserDetailForm";
 import GET_USER_BY_ID from "../graphql/UserDetails";
-import UPDATE_USER_BY_ID from "../graphql/UserUpdate";
 
 export const getInitialUser = userData => {
   const user = userData === undefined ? null : userData.user;
