@@ -14,7 +14,6 @@ const TableBody = props => {
     <Fragment>
       <tbody>
         {data && data.map((obj, key) => {
-          console.log('obj = ', obj);
           return (
             <tr key={key}>
               {Object.values(obj).map((value, k) => <td key={k}>{value}</td>)}

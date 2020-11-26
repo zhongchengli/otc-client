@@ -9,6 +9,7 @@ export const useForm = initValues => {
       setValues({
         ...values,
         [e.target.name]: e.target.value
-      })
-    }];
-}
+      });
+    }
+  ];
+};

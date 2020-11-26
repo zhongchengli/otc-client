@@ -6,9 +6,11 @@ const TableHeader = props => {
   return (
     <Fragment>
       <thead>
-        {headers && headers.map((header, key) => <th key={key}> {header}</th>)}
-        {editBtn && <th>Edit</th>}
-        {deleteBtn && <th>Delete</th>}
+        <tr>
+          {headers && headers.map((header, key) => <td key={key}> {header}</td>)}
+          {editBtn && <td>Edit</td>}
+          {deleteBtn && <td>Delete</td>}
+        </tr>
       </thead>
     </Fragment >
   )

@@ -1,20 +1,8 @@
-import gql from "graphql-tag";
 import React from "react";
 import { useQuery } from "react-apollo";
 import Table from "../../../components/Table";
 import { stripTypenames } from "../../../utils";
-
-
-const GET_ALL_USERS = gql`
-  query {
-    users{
-      id,
-      firstName,
-      lastName,
-      email
-  }
-}
-`;
+import GET_ALL_USERS from "../graphql/UsersQueries";
 
 const UsersPage = props => {
 
