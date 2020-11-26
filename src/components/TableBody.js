@@ -19,7 +19,7 @@ const TableBody = props => {
             <tr key={key}>
               {Object.values(obj).map((value, k) => <td key={k}>{value}</td>)}
               {editBtn && <td><Link to={editPath + obj.id}>Edit</Link></td>}
-              {deleteBtn && <td>Delete</td>}
+              {deleteBtn && <td><Link to={deletePath + obj.id}>Delete</Link></td>}
             </tr>
           );
         })}

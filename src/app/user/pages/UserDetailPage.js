@@ -14,6 +14,7 @@ const GET_USER_BY_ID = gql`
 }
 `;
 
+
 const UserDetailPage = props => {
 
   const query = new URLSearchParams(useLocation().search);
@@ -21,6 +22,9 @@ const UserDetailPage = props => {
 
   const { data } = useQuery(GET_USER_BY_ID, { variables: { id: userId } });
 
+  if (data && data.user) {
+
+  }
   console.log('data in user detail page = ', data);
 
   return (

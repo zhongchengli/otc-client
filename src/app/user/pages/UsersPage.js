@@ -1,8 +1,9 @@
 import gql from "graphql-tag";
 import React from "react";
 import { useQuery } from "react-apollo";
-import Table from "../components/Table";
-import { stripTypenames } from "../utils";
+import Table from "../../../components/Table";
+import { stripTypenames } from "../../../utils";
+
 
 const GET_ALL_USERS = gql`
   query {
