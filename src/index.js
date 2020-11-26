@@ -2,16 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import './css/custom.css';
-import App from './App';
-import { createBrowserHistory } from 'history';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { HttpLink } from 'apollo-link-http';
 import ApolloClient from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
-import { Route, Router, Switch } from 'react-router';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import WelcomePage from './pages/WelcomePage';
+import UserPage from './pages/UserPage';
+import CompanyPage from './pages/CompanyPage';
+import Header from './components/Header';
+import App from './App';
 
-var hist = createBrowserHistory();
 const cache = new InMemoryCache();
 const link = new HttpLink({
   uri: 'http://localhost:4000/graphql'
@@ -23,16 +24,16 @@ const client = new ApolloClient({
 });
 
 ReactDOM.render(
-  <React.StrictMode>
-    <ApolloProvider client={client}>
-      <Router history={hist}>
-        <Switch>
-          <Route path="/" component={WelcomePage} />
-        </Switch>
-      </Router>
-    </ApolloProvider>
-    {/* <App /> */}
-  </React.StrictMode>,
+  <ApolloProvider client={client}>
+    <BrowserRouter>
+      <Header />
+      <Switch>
+        <Route exact path="/" component={WelcomePage} />
+        <Route exact path="/user" component={UserPage} />
+        <Route exact path="/company" component={CompanyPage} />
+      </Switch>
+    </BrowserRouter>
+  </ApolloProvider>,
   document.getElementById('root')
 );
 
