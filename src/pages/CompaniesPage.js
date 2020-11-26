@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CompanyPage = props => {
+const CompaniesPage = props => {
   return (
     <div>
       CompanyPage
@@ -8,4 +8,4 @@ const CompanyPage = props => {
   )
 }
 
-export default CompanyPage;
+export default CompaniesPage;

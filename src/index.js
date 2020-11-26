@@ -5,13 +5,7 @@ import './css/custom.css';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { HttpLink } from 'apollo-link-http';
 import ApolloClient from 'apollo-client';
-import { ApolloProvider } from 'react-apollo';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import WelcomePage from './pages/WelcomePage';
-import UsersPage from './pages/UsersPage';
-import CompanyPage from './pages/CompanyPage';
-import Header from './components/Header';
-import UserDetailPage from './pages/UserDetailPage';
+import PlayTravelApolloProvider from './apollo/PlayTravelApolloProvider';
 
 const cache = new InMemoryCache();
 const link = new HttpLink({
@@ -24,17 +18,7 @@ const client = new ApolloClient({
 });
 
 ReactDOM.render(
-  <ApolloProvider client={client}>
-    <BrowserRouter>
-      <Header />
-      <Switch>
-        <Route exact path="/" component={WelcomePage} />
-        <Route exact path="/users" component={UsersPage} />
-        <Route path="/user" component={UserDetailPage} />
-        <Route exact path="/companies" component={CompanyPage} />
-      </Switch>
-    </BrowserRouter>
-  </ApolloProvider>,
+  <PlayTravelApolloProvider />,
   document.getElementById('root')
 );
 
