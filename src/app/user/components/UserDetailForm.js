@@ -7,10 +7,10 @@ const UserDetailForm = props => {
 
   const { user } = props;
   const [values, handleChange] = useForm({ ...user });
-
   const [updateUser] = useMutation(
     UPDATE_USER_BY_ID
   );
+
 
   // console.log('data in detail form: ', data);
 

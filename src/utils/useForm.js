@@ -10,6 +10,7 @@ export const useForm = initValues => {
         ...values,
         [e.target.name]: e.target.value
       });
-    }
+    },
+    setValues
   ];
 };
